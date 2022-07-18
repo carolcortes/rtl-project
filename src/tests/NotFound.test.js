@@ -17,8 +17,8 @@ describe('Testes do componente NotFound.js', () => {
     render(<NotFound />);
 
     const notFoundImg = screen.getByRole('img',
-     { name: 'Pikachu crying because the page requested was not found' }).src;
-    const urlImg = 'https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif'
+      { name: 'Pikachu crying because the page requested was not found' }).src;
+    const urlImg = 'https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif';
     expect(notFoundImg).toBe(urlImg);
   });
 });
