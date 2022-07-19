@@ -13,14 +13,16 @@ describe('Testes do componente Pokemon.js', () => {
 
     const nextBtn = screen.getByRole('button', { name: /Próximo pokémon/i });
 
-    pokemons.forEach(({ name, type, averageWeight }) => {
+    pokemons.forEach(({ name, type, averageWeight, image }) => {
       const pokemonName = screen.getByTestId(nameTestId);
       const pokemonType = screen.getByTestId('pokemon-type');
       const pokemonWeight = screen.getByTestId('pokemon-weight');
+      const pokemonImg = screen.getByRole('img', { name: `${name} sprite` });
 
       expect(pokemonName).toHaveTextContent(name);
       expect(pokemonType).toHaveTextContent(type);
       expect(pokemonWeight).toHaveTextContent(averageWeight.value);
+      expect(pokemonImg.src).toMatch(image);
 
       userEvent.click(nextBtn);
     });
